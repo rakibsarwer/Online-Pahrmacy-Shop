@@ -10,10 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+Route::get('/','IndexController@index');
 
 Route::get('pharma-shop','AdminProductCategoryController@index');
 Auth::routes();
@@ -22,21 +20,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-});
+})->middleware('admin');
 
-Route::resource('/admin/products', 'AdminProductController');
+Route::resource('/admin/products', 'AdminProductController')->middleware('admin');
 
-Route::get('/admin/companies','AdminCompanyController@index');
-Route::post('/admin/companies','AdminCompanyController@store');
-Route::get('/admin/companies/{company}','AdminCompanyController@destroy');
+Route::get('/admin/companies','AdminCompanyController@index')->middleware('admin');
+Route::post('/admin/companies','AdminCompanyController@store')->middleware('admin');
+Route::get('/admin/companies/{company}','AdminCompanyController@destroy')->middleware('admin');
 
-Route::get('/admin/categories','AdminCategoryController@index');
-Route::post('/admin/categories','AdminCategoryController@store');
-Route::get('/admin/categories/{category}','AdminCategoryController@destroy');
+Route::get('/admin/categories','AdminCategoryController@index')->middleware('admin');
+Route::post('/admin/categories','AdminCategoryController@store')->middleware('admin');
+Route::get('/admin/categories/{category}','AdminCategoryController@destroy')->middleware('admin');;
 
 Route::get('/admin/orders', function () {
     return view('admin.orders');
-});
+})->middleware('admin');
 
 //Customer's Routes
 
@@ -63,7 +61,7 @@ Route::get('/signout',function(){
     return view('customer.login');
 });
 
-Route::get('/signin',function(){
+Route::get('/log',function(){
     return view('customer.login');
 });
 
@@ -71,7 +69,8 @@ Route::get('/signup',function(){
     return view('customer.register');
 });
 
-Route::get('/order-confirm',function(){
-    return view('customer.services.order-confirm');
-});
+Route::get('/order-confirm','ConfirmationController@index');
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
+Route::get('/index', 'IndexController@index');

@@ -1302,29 +1302,29 @@ $(".color-box li").click(function(){
 });
 
 // dark & light
-(function() {
-    $('<div class="sidebar-btn dark-light-btn">' +
-        '<div class="dark-light">'+
-        '<div class="theme-layout-version">Dark' +
-        '</div>' +
-        '</div>' +
-        '</div>').appendTo($('body'));
-})();
+// (function() {
+//     $('<div class="sidebar-btn dark-light-btn">' +
+//         '<div class="dark-light">'+
+//         '<div class="theme-layout-version">Dark' +
+//         '</div>' +
+//         '</div>' +
+//         '</div>').appendTo($('body'));
+// })();
 
-var body_event = $("body");
-body_event.on("click", ".theme-layout-version" , function(){
-    $(this).toggleClass('dark');
-    $('body').removeClass('dark');
-    if($('.theme-layout-version').hasClass('dark')){
-        $('.theme-layout-version').text('Light');
-        $('body').addClass('dark');
-    }else{
-        $('#theme-dark').remove();
-        $('.theme-layout-version').text('Dark');
-    }
+// var body_event = $("body");
+// body_event.on("click", ".theme-layout-version" , function(){
+//     $(this).toggleClass('dark');
+//     $('body').removeClass('dark');
+//     if($('.theme-layout-version').hasClass('dark')){
+//         $('.theme-layout-version').text('Light');
+//         $('body').addClass('dark');
+//     }else{
+//         $('#theme-dark').remove();
+//         $('.theme-layout-version').text('Dark');
+//     }
 
-    return false;
-});
+//     return false;
+// });
 
 
 /*=====================

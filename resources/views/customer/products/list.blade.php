@@ -2,7 +2,7 @@
 
 @section('header')
 <!-- breadcrumb start -->
-<div class="breadcrumb-section">
+<div class="breadcrumb-section" style="padding: 0px 0 !important;">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -90,36 +90,7 @@
                         </div>
                     </div>
                     <!-- silde-bar colleps block end here -->
-                    <!-- side-bar single product slider start -->
-                    <div class="theme-card">
-                        <h5 class="title-border">new product</h5>
-                        <div class="offer-slider slide-1">
-                            <div>
-                                <div class="media">
-                                    <a href="#"><img class="img-fluid blur-up lazyload" src="{{asset('frontEnd')}}/images/pro/1.jpg" alt=""></a>
-                                    <div class="media-body align-self-center">
-                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="product-page(no-sidebar).html"><h6>Slim Fit Cotton Shirt</h6></a>
-                                        <h4>$500.00</h4></div>
-                                </div>
-                                <div class="media">
-                                    <a href="#"><img class="img-fluid blur-up lazyload" src="{{asset('frontEnd')}}/images/pro/1.jpg" alt=""></a>
-                                    <div class="media-body align-self-center">
-                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="product-page(no-sidebar).html"><h6>Slim Fit Cotton Shirt</h6></a>
-                                        <h4>$500.00</h4></div>
-                                </div>
-                                <div class="media">
-                                    <a href="#"><img class="img-fluid blur-up lazyload" src="{{asset('frontEnd')}}/images/pro/1.jpg" alt=""></a>
-                                    <div class="media-body align-self-center">
-                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="product-page(no-sidebar).html"><h6>Slim Fit Cotton Shirt</h6></a>
-                                        <h4>$500.00</h4></div>
-                                </div>
-                            </div>
-                           <div>
-                               
-                           </div>
-                        </div>
-                    </div>
-                    <!-- side-bar single product slider end -->
+                  
                    
                 </div>
                 <div class="collection-content col">
@@ -160,13 +131,7 @@
                                                             <option value="Low to High">100 Products Par Page</option>
                                                         </select>
                                                     </div>
-                                                    <div class="product-page-filter">
-                                                        <select>
-                                                            <option value="High to low">Sorting items</option>
-                                                            <option value="Low to High">50 Products</option>
-                                                            <option value="Low to High">100 Products</option>
-                                                        </select>
-                                                    </div>
+                                                  
                                                 </div>
                                             </div>
                                         </div>
@@ -200,9 +165,7 @@
                                                                 <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a> 
-                                                                <a href="compare.html" title="Compare">
-                                                                        <i class="ti-reload" aria-hidden="true"></i>
-                                                                </a>
+                                                               
                                                         </div>
                                                     </div>
                                                     <div class="product-detail">
@@ -218,9 +181,8 @@
                                                             <p>{{$product->details}}</p>
                                                             <h4>{{$product->price}}</h4>
                                                             <ul class="color-variant">
-                                                                <a href="{{url('cart',$product->id)}}"class="btn btn-info"><i class="fa fa-shopping-cart"></i></a>
-                                                                <a class="btn btn-danger"> <i class="fa fa-search"></i></a>
-                                                                <a class="btn btn-success"><i class="fa fa-heart"></i></a>
+                                                                <a href="{{url('cart',$product->id)}}"class="btn btn-info"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                                                
                                                             </ul>
                                                         </div>
                                                     </div>

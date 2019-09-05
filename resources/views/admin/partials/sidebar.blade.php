@@ -6,7 +6,7 @@
                 <div class="sidebar-user text-center">
                     <div><img class="img-60 rounded-circle lazyloaded blur-up" src="{{asset('adminFrontEnd')}}/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Profile Name</h6>
+                    <h6 class="mt-3 f-14">{{auth()->user()->name}}</h6>
                     <p>General manager.</p>
                 </div>
                 <ul class="sidebar-menu">

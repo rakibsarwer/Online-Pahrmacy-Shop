@@ -96,6 +96,7 @@
                                         <option>Australia</option>
                                     </select> -->
                                 </div>
+                                <input type="hidden" name="shipping_method" value="shipping">
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <div class="field-label">Address</div>
                                     <input type="text" name="address" value="" placeholder="Street address" required="">
@@ -111,7 +112,7 @@
                                
                                 <div class="form-group col-md-12 col-sm-6 col-xs-12">
                                     <div class="field-label">Postal Code</div>
-                                    <input type="text" name="postal-code" value="" placeholder="Postal Code" required="">
+                                    <input type="text" name="postcode" value="" placeholder="Postal Code" required="">
                                 </div>
                                 <!-- <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <input type="checkbox" name="shipping-option" id="account-option"> &ensp;
@@ -135,6 +136,8 @@
                                     </ul>
                                     <ul class="sub-total">
                                         <li>Subtotal <span class="count">{{$total}} Taka</span></li>
+                                        <li>Tax <span class="count">20 Taka</span></li>
+                                        <input type="hidden" name="tax" value="20">
                                         <li>Shipping Type
 
 
@@ -142,11 +145,11 @@
  
                                             <div class="shipping">
                                                 <div class="shopping-option">
-                                                    <input type="radio" required="" value="200" name="shipping" class="cbox" id="free-shipping" increment="200"/>
+                                                    <input type="radio" required="" value="200" name="shipping_charge" class="cbox" id="free-shipping" increment="200"/>
                                                     <label for="free-shipping">Free Shipping</label><p>( 200 Taka )</p>
                                                 </div>
                                                 <div class="shopping-option">
-                                                    <input type="radio" required="" value="0" name="shipping" class="cbox" id ="local-pickup" increment="0"/>
+                                                    <input type="radio" required="" value="0" name="shipping_charge" class="cbox" id ="local-pickup" increment="0"/>
                                                     <label for="local-pickup">Local Pickup</label> <p>( Free )</p>
                                                 </div>
                                                 <br>
@@ -157,7 +160,7 @@
                                         
                                     </ul>
                                     <ul class="total">
-                                        <li>Total <span class="count"><span id="increment-me">{{$total}}</span>  Taka</span></li>
+                                        <li>Total <span class="count"><span id="increment-me">{{$total+20}}</span>  Taka</span></li>
                                     </ul>
                                 </div>
                                 <div class="payment-box">
@@ -206,9 +209,9 @@ $('.cbox').change(function(e){
     var i = parseInt($(this).attr('increment'));
     var current_value = {{$total}};
     if (c){
-        $('span#increment-me').text(current_value+i);
+        $('span#increment-me').text(current_value+i+20);
     }else{
-        $('span#increment-me').text(current_value-i);
+        $('span#increment-me').text(current_value-i+20);
     }
 })
 </script>
